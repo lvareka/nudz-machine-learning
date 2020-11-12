@@ -18,11 +18,15 @@ classdef FeatureCollector < handle
        function addFeature(FC, event, eegData, i)
           % e.g. a reported picture (house / face)
           startTime = event(i).latency;
+          FC.Labels{FC.counter} = event(i).type;
           % onset of another event
+          while strcmp(event(i + 1).type, 'Neut')
+              i = i + 1;
+          end
+          % event(i + 1).type
           endTime   = event(i + 1).latency;
           feature   = eegData(:, startTime:endTime);
           FC.Features{FC.counter} = feature;
-          FC.Labels{FC.counter} = event(i).type;
           FC.counter = FC.counter + 1;
       end
       
