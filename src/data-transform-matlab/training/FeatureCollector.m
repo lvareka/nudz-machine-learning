@@ -20,7 +20,9 @@ classdef FeatureCollector < handle
           startTime = event(i).latency;
           FC.Labels{FC.counter} = event(i).type;
           % onset of another event
-          while strcmp(event(i + 1).type, 'Neut')
+          % while strcmp(event(i + 1).type, 'Neut') 
+          while strcmp(event(i + 1).type, 'Neut') || strcmp(event(i + 1).type, 'Hous') || strcmp(event(i + 1).type, 'Face')
+              
               i = i + 1;
           end
           % event(i + 1).type
