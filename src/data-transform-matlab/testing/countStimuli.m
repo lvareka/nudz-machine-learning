@@ -15,7 +15,7 @@ function [countHouse, countFace, countHRep, countFRep] = countStimuli(dataRaw, f
     countFRep = 0;
     dataRaw = dataRaw{1, 1};
     eegData = dataRaw.trial{1, 1};
-    testingPhase = 0
+    
     for i=1:length(dataRaw.event)
         if strcmp(dataRaw.event(i).type,'StFL')
             testingPhase = 1;

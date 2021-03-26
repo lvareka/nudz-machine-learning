@@ -36,7 +36,7 @@ for i = 1:nfiles
     % save([dir_preprocessed, 'out\we_', pre_files(i, :)], 'dataRaw',  '-v7.3');
     
     % Count stimuli (and store extracted epochs/trials)
-    [countHouse, countFace, countHRep, countFRep] = countStimuli(dataRaw, featureCollector);
+    [countHouse, countFace, countHRep, countFRep] = countStimuli(dataRaw, featureCollector, i);
     resultsCounts(i, 1) = countHouse;
     resultsCounts(i, 2) = countFace;
     
